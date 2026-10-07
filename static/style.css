@@ -1,0 +1,98 @@
+* { box-sizing: border-box; }
+
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #172033;
+  background: #f4f7fb;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #ffffff 0, #f4f7fb 45%, #e9eef8 100%);
+}
+
+.page {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding: 42px 0 30px;
+}
+
+.hero { text-align: center; margin-bottom: 30px; }
+.brand { display: inline-block; font-weight: 800; font-size: 1.8rem; margin-bottom: 8px; }
+h1 { margin: 0 0 10px; font-size: clamp(2rem, 5vw, 3.2rem); }
+h2 { margin-top: 0; font-size: 1.15rem; }
+p { color: #59657a; }
+
+.status {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #eef2f7;
+  font-size: .85rem;
+}
+
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.card {
+  background: rgba(255,255,255,.92);
+  border: 1px solid #e0e6f0;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 12px 30px rgba(31, 50, 80, .08);
+}
+.wide { grid-column: 1 / -1; }
+
+form { display: grid; gap: 10px; }
+label { font-size: .86rem; font-weight: 700; color: #566176; }
+input, textarea {
+  width: 100%;
+  border: 1px solid #ccd5e3;
+  border-radius: 10px;
+  padding: 12px 13px;
+  font: inherit;
+  outline: none;
+  background: #fff;
+}
+input:focus, textarea:focus {
+  border-color: #5b7cff;
+  box-shadow: 0 0 0 3px rgba(91,124,255,.12);
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: 11px 15px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  background: #3f6df6;
+  color: #fff;
+}
+button:hover { filter: brightness(.96); }
+button:disabled { opacity: .6; cursor: wait; }
+
+.output {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #f7f9fc;
+  border: 1px solid #e2e8f2;
+  white-space: pre-wrap;
+  line-height: 1.55;
+}
+.hidden { display: none; }
+.error { background: #fff1f1; border-color: #f1c2c2; color: #9b2c2c; }
+
+.quiz-question { padding: 12px 0; border-bottom: 1px solid #e2e8f2; }
+.quiz-question:last-child { border-bottom: 0; }
+.quiz-options { display: grid; gap: 7px; margin: 10px 0; }
+.quiz-options label { font-weight: 500; color: #273247; }
+.feedback { margin-top: 8px; font-weight: 700; }
+
+footer { text-align: center; color: #758197; padding: 25px 0 5px; font-size: .85rem; }
+
+@media (max-width: 760px) {
+  .grid { grid-template-columns: 1fr; }
+  .wide { grid-column: auto; }
+}

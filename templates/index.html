@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EduGenie — AI Learning Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="brand">🧠✨ EduGenie</div>
+      <h1>Your personal AI tutor</h1>
+      <p>Ask questions, understand concepts, create quizzes, summarize text, and build a learning path.</p>
+      <div id="status" class="status">Checking API...</div>
+    </header>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Ask a Question</h2>
+        <form data-endpoint="/qa" data-method="GET" data-output="qaResult" data-kind="question">
+          <label for="question">Question</label>
+          <input id="question" name="question" placeholder="Which is the largest ocean?" required>
+          <button type="submit">Get Answer</button>
+        </form>
+        <div id="qaResult" class="output hidden"></div>
+      </article>
+
+      <article class="card">
+        <h2>Explain a Topic</h2>
+        <form data-endpoint="/explain" data-method="POST" data-output="explainResult" data-kind="topic">
+          <label for="topic">Topic</label>
+          <input id="topic" name="topic" placeholder="Photosynthesis" required>
+          <button type="submit">Explain</button>
+        </form>
+        <div id="explainResult" class="output hidden"></div>
+      </article>
+
+      <article class="card">
+        <h2>Summarize a Paragraph</h2>
+        <form data-endpoint="/summarize" data-method="POST" data-output="summaryResult" data-kind="text">
+          <label for="summaryText">Text</label>
+          <textarea id="summaryText" name="text" rows="7" placeholder="Paste a long educational passage here..." required></textarea>
+          <button type="submit">Summarize</button>
+        </form>
+        <div id="summaryResult" class="output hidden"></div>
+      </article>
+
+      <article class="card">
+        <h2>Generate a Quiz</h2>
+        <form data-endpoint="/quiz" data-method="POST" data-output="quizResult" data-kind="text">
+          <label for="quizText">Topic or passage</label>
+          <textarea id="quizText" name="text" rows="6" placeholder="The Pythagorean theorem..." required></textarea>
+          <button type="submit">Generate Quiz</button>
+        </form>
+        <div id="quizResult" class="output hidden"></div>
+      </article>
+
+      <article class="card wide">
+        <h2>Learning Recommendations</h2>
+        <form data-endpoint="/learn/recommendations" data-method="GET" data-output="learnResult" data-kind="topic">
+          <label for="learnTopic">Topic</label>
+          <input id="learnTopic" name="topic" placeholder="SQL" required>
+          <button type="submit">Get Recommendations</button>
+        </form>
+        <div id="learnResult" class="output hidden"></div>
+      </article>
+    </section>
+
+    <footer>EduGenie • FastAPI + Google Gemini</footer>
+  </main>
+  <script src="{{ url_for('static', path='app.js') }}"></script>
+</body>
+</html>
